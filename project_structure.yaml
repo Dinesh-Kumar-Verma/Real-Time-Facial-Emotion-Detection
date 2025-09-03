@@ -1,0 +1,36 @@
+project_name: Real-Time-Facial-Emotion-Detection
+
+directories:
+  - config
+  - pipelines
+  - steps
+  - notebooks
+  - data/raw
+  - data/processed
+  - models/cnn_model
+  - models/transfer_learning_model
+  - logs
+  - scripts
+
+files:
+  - README.md
+  - requirements.txt
+  - zenml.yaml
+  - config/data_config.yaml
+  - config/model_config.yaml
+  - config/pipeline_config.yaml
+  - config/experiment_config.yaml
+  - pipelines/data_pipeline.py
+  - pipelines/training_pipeline.py
+  - pipelines/evaluation_pipeline.py
+  - pipelines/deployment_pipeline.py
+  - steps/data_loader.py
+  - steps/data_preprocessing.py
+  - steps/model_builder_cnn.py
+  - steps/model_builder_transfer.py
+  - steps/trainer.py
+  - steps/evaluator.py
+  - steps/deployment.py
+  - notebooks/eda.ipynb
+  - notebooks/experiments.ipynb
+  - scripts/create_structure.py
