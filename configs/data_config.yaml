@@ -1,0 +1,24 @@
+dataset:
+  name: fer2013
+  source: kaggle
+  data_path: data
+  kaggle_dataset: msambare/fer2013
+  gdrive_url: none
+  image_size: [224, 224]
+  color_mode: rgb  # Convert grayscale to RGB for transfer learning
+  batch_size: 32
+  validation_split: 0.1
+  shuffle: true
+  augmentations:
+    - flip_horizontal
+    - rotation: 15
+    - zoom: 0.1
+    - brightness: 0.2
+classes:
+  - angry
+  - disgust
+  - fear
+  - happy
+  - neutral
+  - sad
+  - surprise
