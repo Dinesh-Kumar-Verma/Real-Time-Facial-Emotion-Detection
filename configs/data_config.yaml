@@ -1,9 +1,11 @@
 dataset:
   name: fer2013
-  source: kaggle
+  source: "gdrive"
   data_path: data
+  train_data_path: data/train
+  test_data_path: data/test
   kaggle_dataset: msambare/fer2013
-  gdrive_url: none
+  gdrive_url: "https://drive.google.com/file/d/1pxW34GG8gfwtuF2K2fYpjojQ3Psei4E0/view?usp=sharing"
   image_size: [224, 224]
   color_mode: rgb  # Convert grayscale to RGB for transfer learning
   batch_size: 32
@@ -11,7 +13,7 @@ dataset:
   shuffle: true
   augmentations:
     - flip_horizontal
-    - rotation: 15
+    - rotation:   
     - zoom: 0.1
     - brightness: 0.2
 classes:

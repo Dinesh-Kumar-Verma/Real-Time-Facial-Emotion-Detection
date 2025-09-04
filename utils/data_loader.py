@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 import gdown
 import zipfile
-from kaggle.api.kaggle_api_extended import KaggleApi
+# from kaggle.api.kaggle_api_extended import KaggleApi
 
 
 def load_data(
@@ -35,7 +35,7 @@ def load_data(
                 raise ValueError("Google Drive URL must be provided when source='gdrive'")
             logger.info("Downloading dataset from Google Drive...")
             output_path = dest_path / "data.zip"
-            gdown.download(gdrive_url, str(output_path), quiet=False)
+            gdown.download(gdrive_url, str(output_path), fuzzy = True, quiet=False)
             logger.info(f"Dataset downloaded successfully: {output_path}")
             return output_path
 
@@ -43,11 +43,11 @@ def load_data(
             if not kaggle_dataset:
                 raise ValueError("Kaggle dataset name must be provided when source='kaggle'")
             logger.info(f"Downloading dataset from Kaggle: {kaggle_dataset}...")
-            # cmd = [sys.executable, "-m", "kaggle", "datasets", "download", "-d", kaggle_dataset, "-p", str(dest_path)]
-            # subprocess.run(cmd, check=True)
-            api = KaggleApi()
-            api.authenticate()
-            api.dataset_download_files(kaggle_dataset, path=str(dest_path), unzip=True)
+            cmd = [sys.executable, "-m", "kaggle", "datasets", "download", "-d", kaggle_dataset, "-p", str(dest_path)]
+            subprocess.run(cmd, check=True)
+            # api = KaggleApi()
+            # api.authenticate()
+            # api.dataset_download_files(kaggle_dataset, path=str(dest_path), unzip=True)
             logger.info(f"Dataset downloaded successfully into: {dest_path}")
             return dest_path
 
