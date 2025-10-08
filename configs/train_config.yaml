@@ -1,0 +1,9 @@
+project_dir: "./artifacts"
+train_dir: "./data/train"
+test_dir: "./data/test"
+artifact_dir: "./artifacts"
+batch_size: 64
+epochs: 15
+num_classes: 7
+seed: 42
+mlflow_experiment: "emotion_detection"

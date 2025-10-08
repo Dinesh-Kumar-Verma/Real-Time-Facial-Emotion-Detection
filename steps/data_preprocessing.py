@@ -15,6 +15,7 @@ def clean_image_dataset(data_dir: str) -> Dict:
       - logs issues
     Returns a summary dictionary.
     """
+    logger.info("Started Data Cleaning <<<<<<<<<<<")
     image_exts = ['jpeg', 'jpg', 'png']
     valid_exts = [ext.lower() for ext in image_exts]
 
@@ -58,6 +59,6 @@ def clean_image_dataset(data_dir: str) -> Dict:
         "processed_count": len(processed),
         "removed_files": removed[:5], 
     }
-
     logger.info(f"Cleaning summary: {summary}")
+    logger.info("Finished Data Cleaning >>>>>>>>>>>>>>>")
     return summary
