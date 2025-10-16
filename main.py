@@ -1,4 +1,4 @@
-# from pipelines.data_pipeline import data_pipeline
+from pipelines.data_pipeline import data_pipeline
 
 # if __name__ == "__main__":
 #     pipe = data_pipeline()
@@ -17,6 +17,7 @@ def run(config_path: str, model_key: str):
     # ZenML usage: run the step directly by calling the step function (ZenML will create an execution)
     # We'll call the @step as a function with config and model_key
     # Note: this assumes zenml is initialized (zenml init) and stack is configured if using orchestrators/artifact stores.
+    pipe = data_pipeline()
     result = train_model_step(config=config, model_key=model_key)
     print("Run result:", result)
 
@@ -26,4 +27,5 @@ if __name__ == "__main__":
     parser.add_argument("--model", type=str, default="custom_cnn", help="Model key to train")
     args = parser.parse_args()
     run(args.config, args.model)
+
 
