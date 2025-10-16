@@ -9,7 +9,7 @@ from pathlib import Path
 from zenml.client import Client
 from zenml.pipelines import pipeline as zen_pipeline_decorator
 from pipelines.training_pipeline import training_pipeline
-from steps.train_model_step import train_model_step
+from steps.train_model import train_model_step
 from utils.config_loader import load_config
 
 def run(config_path: str, model_key: str):
@@ -26,3 +26,4 @@ if __name__ == "__main__":
     parser.add_argument("--model", type=str, default="custom_cnn", help="Model key to train")
     args = parser.parse_args()
     run(args.config, args.model)
+
